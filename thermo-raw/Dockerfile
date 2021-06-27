@@ -14,4 +14,4 @@ RUN apt -y install mono-devel
 RUN Rscript -e \
     'install.packages("BiocManager")'
     
-RUN Rscript -e 	       "BiocManager::install('rawrr');rawrr::installRawFileReaderDLLs();rawrr::installRawrrExe()"
+RUN Rscript -e "BiocManager::install('rawrr');rawrr::installRawFileReaderDLLs();rawrr::installRawrrExe()"
