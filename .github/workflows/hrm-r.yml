@@ -13,8 +13,7 @@ on:
 jobs:
   
     hrm-r:
-      needs: ubuntu-xcms
-
+   
       runs-on: ubuntu-20.04
 
       steps:
