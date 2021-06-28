@@ -34,7 +34,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 
 RUN Rscript -e "remotes::install_github('jasenfinch/minder')"
 RUN Rscript -e "remotes::install_github('jasenfinch/remoteTools')"
-RUN Rscript -e "BiocManager::install('rawrr');rawrr::installRawFileReaderDLLs();rawrr::installRawrrExe()"
+RUN Rscript -e "BiocManager::install('rawrr');rawrr::installRawFileReaderDLLs()"
 RUN Rscript -e "remotes::install_github('jasenfinch/grover')"
 
 RUN echo '@daily apt-get update && apt-get -y dist-upgrade && apt-get -y autoremove \n@daily Rscript -e "hrm::hrmUpdate()"\n@daily chmod -R 777 /R' | crontab
