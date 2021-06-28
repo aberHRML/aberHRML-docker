@@ -1,4 +1,4 @@
-FROM ghcr.io/aberHRML/ubuntu-r
+FROM ghcr.io/aberhrml/ubuntu-r
 
 MAINTAINER "aberHRML" 
 
