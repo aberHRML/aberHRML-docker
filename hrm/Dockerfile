@@ -1,4 +1,4 @@
-FROM ghcr.io/aberHRML/ubuntu-r-xcms
+FROM ghcr.io/aberhrml/ubuntu-r-xcms
 
 MAINTAINER "aberHRML" 
 
@@ -19,6 +19,6 @@ RUN apt-get install -y \
 
 ## Install metabolomics packages from github
 RUN Rscript -e \
-  'devtools::install_github("jasenfinch/hrm")'
+  'remotes::install_github("jasenfinch/hrm")'
 
 RUN chmod -R 777 /R
