@@ -1,0 +1,28 @@
+## Welcome message
+local({
+  message('Welcome to the HRML HPC cluster.')
+  message('Run vignette("index","hrmlcluster") for information and tutorials on using the cluster.')
+})
+
+## Setup package repositories
+local({
+  r <- getOption("repos")
+  r["CRAN"] <- "https://cloud.r-project.org"
+  r["hrml"] <- "http://hrml.ibers.aber.ac.uk/R-packages"
+  options(repos = r)
+})
+
+## Check for file store mounts and mount if needed
+local({
+  if ("hrmlcluster" %in% rownames(utils::installed.packages())){
+    if (!hrmlcluster::isMounted('data')) {
+      hrmlcluster::mountFileStore('data')
+    }
+    
+    if (!hrmlcluster::isMounted('share')) {
+      hrmlcluster::mountFileStore('share')
+    }
+  } else {
+    message('The hrmlcluster package is not found, the file store will not be mounted.')
+  }
+})
