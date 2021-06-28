@@ -1,4 +1,4 @@
-FROM ghcr.io/aberhrml/ubuntu-r-xcms
+FROM ghcr.io/aberhrml/ubuntu-xcms
 
 MAINTAINER "aberHRML" 
 
