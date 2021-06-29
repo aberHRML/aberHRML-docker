@@ -51,7 +51,6 @@ RUN wget -q \
   && dpkg -i rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb
 
-COPY rstudio/config/rserver.conf /etc/rstudio/rserver.conf
 COPY rstudio/config/rsession.conf /etc/rstudio/rsession.conf
 COPY rstudio/config/Rprofile.site /usr/lib/R/etc/Rprofile.site
 COPY rstudio/config/setup.sh /setup.sh
