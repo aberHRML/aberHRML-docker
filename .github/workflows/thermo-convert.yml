@@ -1,4 +1,4 @@
-name: hrm-r-build
+name: thermo-convert-build
 
 on:
   push:
@@ -12,8 +12,8 @@ on:
   
 jobs:
   
-    hrm-r:
-   
+    ubuntu-xcms:
+
       runs-on: ubuntu-20.04
 
       steps:
@@ -27,16 +27,16 @@ jobs:
           run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       
         - name: Build image
-          run: docker build . --build-arg GITHUB_PAT=${{ secrets.GITHUB_TOKEN }} --file hrm-r/Dockerfile --tag hrm-r
+          run: docker build . --build-arg GITHUB_PAT=${{ secrets.GITHUB_TOKEN }} --file thermo-convert/Dockerfile --tag thermo-convert
 
         - name: Push image
           run: |
-            IMAGE_ID=ghcr.io/aberhrml/hrm-r
+            IMAGE_ID=ghcr.io/aberhrml/thermo-convert
           
             VERSION=${{ steps.date.outputs.date }}
             echo IMAGE_ID=$IMAGE_ID
             echo VERSION=$VERSION
-            docker tag hrm-r $IMAGE_ID:$VERSION
-            docker tag hrm-r $IMAGE_ID:latest
+            docker tag thermo-convert $IMAGE_ID:$VERSION
+            docker tag thermo-convert $IMAGE_ID:latest
             docker push $IMAGE_ID:$VERSION
             docker push $IMAGE_ID:latest
