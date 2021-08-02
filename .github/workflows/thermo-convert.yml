@@ -27,7 +27,7 @@ jobs:
           run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       
         - name: Build image
-          run: docker build . --build-arg GITHUB_PAT=${{ secrets.GITHUB_TOKEN }} --file thermo-convert/Dockerfile --tag thermo-convert
+          run: docker build . --build-arg GITHUB_PAT=${{ secrets.GITHUB_TOKEN }} --file thermo-raw/Dockerfile --tag thermo-convert
 
         - name: Push image
           run: |
