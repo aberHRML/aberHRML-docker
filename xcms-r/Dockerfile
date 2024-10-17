@@ -21,7 +21,11 @@ RUN apt-get install -y \
   libfreetype6-dev \
   libpng-dev \
   libtiff5-dev \
-  libjpeg-dev
+  libjpeg-dev \
+  libnetcdf-dev \
+  libhdf5-dev \
+  libglpk-dev 
+
   
 ## Install R
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
@@ -39,5 +43,6 @@ RUN Rscript -e 'install.packages("renv")'
 
 ## Install Bioconductor, devtools & update R packages
 RUN Rscript -e 'renv::install(c("BiocManager","devtools","tidyverse"))'
+RUN Rscript -e 'renv::install("bioc::xcms")'
 
 RUN chmod -R 777 /R
