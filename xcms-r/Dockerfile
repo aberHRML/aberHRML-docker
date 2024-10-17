@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 MAINTAINER "aberHMRL"
 
 ## Install external dependencies
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN apt-get install -y \
   software-properties-common \
   wget \
   curl \
