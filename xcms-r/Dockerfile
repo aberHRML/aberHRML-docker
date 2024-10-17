@@ -3,6 +3,8 @@ FROM ubuntu:22.04
 MAINTAINER "aberHMRL"
 
 ## Install external dependencies
+RUN apt-get update 
+
 RUN apt-get install -y \
   software-properties-common \
   wget \
