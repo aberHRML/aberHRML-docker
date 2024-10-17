@@ -16,3 +16,15 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file xcms-r/Dockerfile --tag xcms-r
+    
+    - name: Push image
+      run: |
+        IMAGE_ID=ghcr.io/${{ github.actor }}/xcms-r
+        VERSION=${{ steps.date.outputs.date }}
+        
+        echo IMAGE_ID=$IMAGE_ID
+        echo VERSION=$VERSION
+        docker tag xcms-r $IMAGE_ID:$VERSION
+        docker tag xcms-r $IMAGE_ID:latest
+        docker push $IMAGE_ID:$VERSION
+        docker push $IMAGE_ID:latest
