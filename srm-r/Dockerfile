@@ -1,10 +1,9 @@
-FROM ghcr.io/aberHRML/ubuntu-xcms
+FROM ghcr.io/aberHRML/xcms-r
 
 MAINTAINER "aberHRML" 
 
 ARG GITHUB_PAT
 
-RUN Rscript -e \
-  'remotes::install_github("wilsontom/sRm")'
+RUN Rscript -e 'renv::install("wilsontom/sRm")'
   
-sRmN chmod -R 777 /R
+RUN chmod -R 777 /R
