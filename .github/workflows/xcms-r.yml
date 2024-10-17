@@ -1,4 +1,4 @@
-name: thermo-convert-build
+name: xcms-r build
 
 on:
   push:
@@ -27,11 +27,11 @@ jobs:
           run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       
         - name: Build image
-          run: docker build . --build-arg GITHUB_PAT=${{ secrets.GITHUB_TOKEN }} --file thermo-raw/Dockerfile --tag thermo-convert
+          run: docker build . --build-arg GITHUB_PAT=${{ secrets.GITHUB_TOKEN }} --file thermo-raw/Dockerfile --tag xcms-r
 
         - name: Push image
           run: |
-            IMAGE_ID=ghcr.io/aberhrml/thermo-convert
+            IMAGE_ID=ghcr.io/aberhrml/xcms-r
           
             VERSION=${{ steps.date.outputs.date }}
             echo IMAGE_ID=$IMAGE_ID
