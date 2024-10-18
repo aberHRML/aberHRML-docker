@@ -19,7 +19,7 @@ jobs:
     
     - name: Push image
       run: |
-        IMAGE_ID=ghcr.io/${{ github.actor }}/xcms-r
+        IMAGE_ID=ghcr.io/aberhrml/xcms-r
         VERSION=${{ steps.date.outputs.date }}
         
         echo IMAGE_ID=$IMAGE_ID
