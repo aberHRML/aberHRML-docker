@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: build and push image
       run: |
-        docker login --username aberhrml --password ${{ secrets.GH_PAT }} ghcr.io
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u aberhrml --password-stdin
         docker build . --file xcms-r/Dockerfile --tag xcms-r:latest
         docker push ghcr.io/aberhrml/xcms-r:latest
 
