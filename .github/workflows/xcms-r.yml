@@ -14,8 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: build and push image
-      run: docker login --username aberhrml --password ${{ secrets.GH_PAT }} ghcr.io
-      run: docker build . --file xcms-r/Dockerfile --tag xcms-r:latest
-      run: docker push ghcr.io/aberhrml/xcms-r:latest
+      run: |
+        docker login --username aberhrml --password ${{ secrets.GH_PAT }} ghcr.io
+        docker build . --file xcms-r/Dockerfile --tag xcms-r:latest
+        docker push ghcr.io/aberhrml/xcms-r:latest
 
   
