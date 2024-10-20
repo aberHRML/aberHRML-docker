@@ -17,5 +17,5 @@ jobs:
     - name: build and push image
       run: |
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u aberhrml --password-stdin
-        run: docker build . --file xcms-r/Dockerfile --tag ghcr.io/aberhrml/xcms-r:latest
+        docker build . --file xcms-r/Dockerfile --tag ghcr.io/aberhrml/xcms-r:latest
         docker push ghcr.io/aberhrml/xcms-r:latest
