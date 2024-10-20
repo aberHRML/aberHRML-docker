@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build and Publish
 
 on:
   push:
@@ -14,5 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file xcms-r/Dockerfile --tag ghcr.io/aberhrml/xcms-r:$(date +%s)
+    - name: build and push image
+      run: |
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u aberhrml --password-stdin
+        run: docker build . --file xcms-r/Dockerfile --tag ghcr.io/aberhrml/xcms-r:latest
+        docker push ghcr.io/aberhrml/xcms-r:latest
