@@ -42,7 +42,7 @@ RUN echo "R_LIBS=/R" >> /usr/lib/R/etc/Renviron.site
 RUN Rscript -e 'install.packages("renv")'
 
 ## Install Bioconductor, devtools & update R packages
-RUN Rscript -e 'renv::install(c("BiocManager","devtools","tidyverse"))'
+RUN Rscript -e 'renv::install(c("BiocManager","devtools","tidyverse", "futures"))'
 RUN Rscript -e 'renv::install("bioc::xcms")'
 
 RUN chmod -R 777 /R
