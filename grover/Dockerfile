@@ -1,4 +1,4 @@
-FROM ghcr.io/jasenfinch/ubuntu-r:latest
+FROM ghcr.io/aberhrml/ubuntu-r:latest
 
 RUN apt-get update \
   && apt-get -y dist-upgrade
