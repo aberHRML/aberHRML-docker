@@ -1,0 +1,21 @@
+name: ubuntu-r
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: build and push image
+      run: |
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u aberhrml --password-stdin
+        docker build . --file ubuntu-r/Dockerfile --tag ghcr.io/aberhrml/ubuntu-r:latest
+        docker push ghcr.io/aberhrml/ubuntu-r:latest
